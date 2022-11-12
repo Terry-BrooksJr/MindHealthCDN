@@ -1,7 +1,3 @@
-console.log('Connected');
-import Swiper from 'swiper';
-import 'swiper/css';
-
 
 $(function () {
 	// Anchor Target Scroll Animation
@@ -71,47 +67,3 @@ copyright.innerHTML = "© MindHealth " + year;
 $(function () {
 	$('[data-toggle="tooltip"]').tooltip()
 })
-
-function formatPhoneNumber() {
-	const str = Number(Document.getElementById('number'))
-	//Filter only numbers from the input
-	let cleaned = ('' + str).replace(/\D/g, '');
-
-	//Check if the input is of correct length
-	let match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
-
-	if (match) {
-		return '(' + match[1] + ') ' + match[2] + '-' + match[3]
-	} else
-		alert('The Phone Number Entered is Invaild. Please check the number and attempt to resubmit the form!')
-	console.log(ValidationError)
-};
-
-class ValidationError extends Error {
-	constructor(message) {
-		super(message);
-		this.name = "Phone Number Validation Error";
-	}
-}
-function test_number() {
-	throw new ValidationError("The Phone Number Entered is Invaild. Please check the number and attempt to resubmit the form!")
-}
-try {
-	test_number();
-} catch (err) {
-	alert(err.name);
-	alert(err.message);
-}
-
-//setup before functions
-var typingTimer;                //timer identifier
-var doneTypingInterval = 5000;  //time in ms (5 seconds)
-
-//on keyup, start the countdown
-$('#phone-number').keyup(function () {
-	clearTimeout(typingTimer);
-	if ($('#myInput').val()) {
-		typingTimer = setTimeout(formatPhoneNumber($('#myInput').val()), doneTypingInterval);
-	}
-});
-
